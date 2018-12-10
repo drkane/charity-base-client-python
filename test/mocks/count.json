@@ -1,0 +1,71 @@
+{
+    "query": {
+        "index": "charity-base-v284-sep-2018",
+        "body": {
+            "query": {
+                "bool": {
+                    "must": {
+                        "simple_query_string": {
+                            "query": "homeless",
+                            "fields": [
+                                "name^3",
+                                "alternativeNames^3",
+                                "activities",
+                                "contact.email",
+                                "trustees.names",
+                                "areasOfOperation.name",
+                                "causes.name",
+                                "beneficiaries.name",
+                                "operations.name",
+                                "grants.description",
+                                "grants.fundingOrganization.name"
+                            ]
+                        }
+                    },
+                    "filter": [
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "geo_bounding_box": {
+                                "contact.geoCoords": {
+                                    "top_left": {
+                                        "lat": 90,
+                                        "lon": -180
+                                    },
+                                    "bottom_right": {
+                                        "lat": -90,
+                                        "lon": 180
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "count": 1566
+}

@@ -1,0 +1,205 @@
+{
+    "query": {
+        "_source": [
+            "ids",
+            "name",
+            "income.latest.total"
+        ],
+        "sort": [
+            "income.latest.total:desc",
+            "_score",
+            "income.latest.total:desc",
+            "ids.GB-CHC:asc"
+        ],
+        "size": 10,
+        "from": 0,
+        "index": "charity-base-v284-sep-2018",
+        "body": {
+            "query": {
+                "bool": {
+                    "must": {
+                        "simple_query_string": {
+                            "query": "homeless",
+                            "fields": [
+                                "name^3",
+                                "alternativeNames^3",
+                                "activities",
+                                "contact.email",
+                                "trustees.names",
+                                "areasOfOperation.name",
+                                "causes.name",
+                                "beneficiaries.name",
+                                "operations.name",
+                                "grants.description",
+                                "grants.fundingOrganization.name"
+                            ]
+                        }
+                    },
+                    "filter": [
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "geo_bounding_box": {
+                                "contact.geoCoords": {
+                                    "top_left": {
+                                        "lat": 90,
+                                        "lon": -180
+                                    },
+                                    "bottom_right": {
+                                        "lat": -90,
+                                        "lon": 180
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        },
+                        {
+                            "bool": {
+                                "should": []
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "charities": [
+        {
+            "income": {
+                "latest": {
+                    "total": 312847000
+                }
+            },
+            "name": "Barnardo'S",
+            "ids": {
+                "GB-CHC": 216250,
+                "charityId": "GB-CHC-216250"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 209659000
+                }
+            },
+            "name": "The Salvation Army",
+            "ids": {
+                "GB-CHC": 214779,
+                "charityId": "GB-CHC-214779"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 204257541
+                }
+            },
+            "name": "The Steve Morgan Foundation",
+            "ids": {
+                "GB-CHC": 1087056,
+                "charityId": "GB-CHC-1087056"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 195546000
+                }
+            },
+            "name": "Change, Grow, Live",
+            "ids": {
+                "GB-CHC": 1079327,
+                "charityId": "GB-CHC-1079327"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 177037000
+                }
+            },
+            "name": "The Salvation Army Social Work Trust",
+            "ids": {
+                "GB-CHC": 215174,
+                "charityId": "GB-CHC-215174"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 159830000
+                }
+            },
+            "name": "Action For Children",
+            "ids": {
+                "GB-CHC": 1097940,
+                "charityId": "GB-CHC-1097940"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 131254000
+                }
+            },
+            "name": "George Peabody Donation Fund",
+            "ids": {
+                "GB-CHC": 206061,
+                "charityId": "GB-CHC-206061"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 102500000
+                }
+            },
+            "name": "The Priory Of England And The Islands Of The Most Venerable Order Of The Hospital Of St. John Of Jerusalem",
+            "ids": {
+                "GB-CHC": 1077265,
+                "charityId": "GB-CHC-1077265"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 86536000
+                }
+            },
+            "name": "St Mungo Community Housing Association",
+            "ids": {
+                "GB-CHC": 1149085,
+                "charityId": "GB-CHC-1149085"
+            }
+        },
+        {
+            "income": {
+                "latest": {
+                    "total": 62873000
+                }
+            },
+            "name": "Cats Protection",
+            "ids": {
+                "GB-CHC": 203644,
+                "charityId": "GB-CHC-203644"
+            }
+        }
+    ]
+}
