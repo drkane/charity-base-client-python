@@ -1,10 +1,6 @@
 import os
-import sys
 import json
-
-sys.path.insert(0, os.path.abspath(os.path.join(
-    os.path.dirname(__file__), '..')))
-
+# first need to install the module using `pip install -e .`
 from charitybase import CharityBase
 
 DUMMY_API_KEY = 'dummy_api_key'
