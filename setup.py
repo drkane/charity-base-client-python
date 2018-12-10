@@ -23,4 +23,5 @@ setup(
     packages=find_packages(exclude=('tests', 'docs')),
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
+    python_requires='>=3',
 )
