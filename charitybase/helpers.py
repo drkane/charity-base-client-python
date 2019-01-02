@@ -4,7 +4,6 @@ import requests
 
 
 def fetchJSON(url, options={}, accessToken=None):
-    print(url)
     headers = options.get('headers', {})
     method = options.get('method', 'GET').upper()
 
@@ -19,7 +18,6 @@ def stringifyQuery(query, allowedKeys):
 
     def encode_value(value, key):
         if isinstance(value, list) and key=='fields':
-            print(value)
             return ",".join(value)
 
         return value
