@@ -9,7 +9,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='charity-base-client-python',
-    version='0.1.2',
+    version='0.1.3',
     description='A Python client library for interacting with the CharityBase REST API.',
     long_description=readme,
     long_description_content_type="text/markdown",
